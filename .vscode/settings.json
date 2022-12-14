@@ -1,0 +1,14 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/workspaces/4.14.181",
+            "binaryPath": "/workspaces/4.14.181/scripts/kconfig/conf",
+            "binaryArgs": [
+                "--silentoldconfig",
+                "Kconfig",
+                "ARCH=arm64",
+                "a71_eur__open_defconfig"
+            ]
+        }
+    ]
+}

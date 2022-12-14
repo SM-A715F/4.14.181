@@ -46,11 +46,11 @@ ccache -M 50G
 
 # Export toolchain/clang/llvm flags
 
-export CROSS_COMPILE="/home/ubuntu/kernel/gcc/bin/aarch64-linux-android-"
+export CROSS_COMPILE="/workspaces/4.14.181/gcc/bin/aarch64-linux-android-"
 
 export CLANG_TRIPLE="aarch64-linux-gnu-"
-export CC="/home/ubuntu/kernel/clang/bin/clang"
-KERNEL_MAKE_ENV="DTC_EXT=/home/ubuntu/kernel/tools/dtc" 
+export CC="/workspaces/4.14.181/clang/bin/clang"
+KERNEL_MAKE_ENV="DTC_EXT=/workspaces/4.14.181/tools/dtc" 
 # Export if/else outdir var
 
 export WITH_OUTDIR=true
@@ -85,9 +85,9 @@ fi
 
 if [ "${WITH_OUTDIR}" == true ]; then
 
-   "${CCACHE}" make O=a71 $KERNEL_MAKE_ENV a71_defconfig
+   "${CCACHE}" make O=a71 $KERNEL_MAKE_ENV a71_eur_open_defconfig
 
-   "${CCACHE}" make -j$(nproc --all) $KERNEL_MAKE_ENV O=a71
+   "${CCACHE}" make $KERNEL_MAKE_ENV O=a71
 
    tools/mkdtimg create a71/arch/arm64/boot/dtbo.img --page_size=4096 $(find a71/arch -name "*.dtbo")
 

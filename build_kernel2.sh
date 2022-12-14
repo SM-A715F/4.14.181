@@ -43,7 +43,7 @@
                                  --board SRPSH29C000" 
  #*** TARGET CONFIG END ***# 
   
- KERNEL_DEFCONFIG=${CHIPSET_NAME}_sec_defconfig 
+ KERNEL_DEFCONFIG=sm7150_sec_defconfig 
   
  if [ "${SEC_BUILD_OPTION_TYPE}" != "userdebug" ]; then 
          DEBUG_DEFCONFIG=${CHIPSET_NAME}_sec_${SEC_BUILD_OPTION_TYPE}_defconfig 
@@ -52,7 +52,7 @@
  if [ "${REGION}" == "${CARRIER}" ]; then 
          VARIANT_DEFCONFIG=${CHIPSET_NAME}_sec_${MODEL}_${CARRIER}_defconfig 
  else 
-         VARIANT_DEFCONFIG=${CHIPSET_NAME}_sec_${MODEL}_${REGION}_${CARRIER}_defconfig 
+         VARIANT_DEFCONFIG=sm7150_stock_defconfig 
  fi 
   
  KERNEL_MAKE_ENV="DTC_EXT=/home/ubuntu/kernel/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y" 
